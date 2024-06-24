@@ -147,5 +147,71 @@
 		}
 	}
 </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>#RejectFinanceBill2024</title>
+    <meta name="description" content="Reject finance Bill 2024 tweet helper" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <main>
+        <div class="reject">
+            <h5>Click the button below to tweet #RejectFinanceBill2024</h5>
+            <form target="_blank" action="https://twitter.com/intent/tweet" method="get">
+                <input type="hidden" name="hashtags" value="RejectFinanceBill2024,OccupyParliament,TotalShutdownKenya" />
+                <div class="your-voice">
+                    <label for="tweet">Type your tweet(Optional)</label>
+                    <textarea autofocus rows="5" type="text" name="text"></textarea>
+                </div>
+                <div>
+                    <button>Tweet #RejectFinanceBill2024 </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <button id="toggle-dark-mode">&#9728;</button>
+
+    <script>
+        const toggleDarkMode = () => {
+            document.body.classList.toggle('dark-mode');
+            const toggleButton = document.getElementById('toggle-dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                toggleButton.innerHTML = '&#9789;'; // Moon symbol
+            } else {
+                toggleButton.innerHTML = '&#9728;'; // Sun symbol
+            }
+        };
+
+        document.getElementById('toggle-dark-mode').addEventListener('click', toggleDarkMode);
+
+        // Detect user's preferred color scheme
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (prefersDarkScheme) {
+            document.body.classList.add('dark-mode');
+            document.getElementById('toggle-dark-mode').innerHTML = '&#9789;';
+        } else {
+            document.body.classList.remove('dark-mode');
+            document.getElementById('toggle-dark-mode').innerHTML = '&#9728;';
+        }
+
+        // Unregister SW from the main domain
+        window.onload = () => {
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker
+                    .getRegistrations()
+                    .then(function (registrations) {
+                        for (let registration of registrations) {
+                            registration.unregister().then(function (boolean) {
+                                console.log('Service worker unregistered:', boolean);
+                            });
+                        }
+                    })
+                    .catch(function (error) {
+                        console.log('Error unregistering service workers:', error);
+                    });
+            }
+        };
+    </script>
 </body>
 </html>

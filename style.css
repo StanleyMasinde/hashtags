@@ -1,48 +1,95 @@
 body {
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
 		Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	background-color: #ffffff; /* Default light mode background */
+	color: #000000; /* Default light mode text color */
+}
+
+body.dark-mode {
+	background-color: #121212;
+	color: #e6dfdf;
 }
 
 main {
 	height: 100vh;
 	display: grid;
 	place-items: center;
+}
 
-	div.reject {
-		border: 1px solid gray;
-		padding: 10px;
-		border-radius: 10px;
-		box-shadow: 3px 3px black;
+div.reject {
+	border: 1px solid gray;
+	padding: 10px;
+	border-radius: 10px;
+	box-shadow: 3px 3px black;
+}
 
-		div.your-voice {
-			display: flex;
-			flex-direction: column;
-			margin: 10px 0px;
+body.dark-mode div.reject {
+	border: 1px solid #e6dfdf;
+	box-shadow: 3px 3px #e5e4e4;
+}
 
-			textarea,
-			input {
-				border: 1px solid gray;
-				box-shadow: 3px 3px black;
-				border-radius: 5px;
-				margin: 5px 0px;
-                padding: 10px;
-			}
-		}
+div.your-voice {
+	display: flex;
+	flex-direction: column;
+	margin: 10px 0px;
+}
 
-		form {
-			display: flex;
-			flex-direction: column;
-		}
+textarea,
+input {
+	border: 1px solid gray;
+	box-shadow: 3px 3px black;
+	border-radius: 5px;
+	margin: 5px 0px;
+	padding: 10px;
+}
 
-		button {
-			background-color: red;
-			color: white;
-			padding: 7px;
-			border: 1px solid gray;
-			border-radius: 9px;
-			cursor: pointer;
-			width: 100%;
-			box-shadow: 3px 3px black;
-		}
-	}
+body.dark-mode textarea,
+body.dark-mode input {
+	border: 1px solid #e6dfdf;
+	box-shadow: 3px 3px #e6dfdf;
+	background-color: #333333;
+	color: #f7f6f6;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+button {
+	background-color: red;
+	color: white;
+	padding: 7px;
+	border: 1px solid gray;
+	border-radius: 9px;
+	cursor: pointer;
+	width: 100%;
+	box-shadow: 3px 3px black;
+}
+
+body.dark-mode button {
+	border: 1px solid #e6dfdf;
+	box-shadow: 3px 3px #e6dfdf;
+	background-color: rgba(255, 0, 0, 0.541);
+}
+
+/* Toggle button styles */
+#toggle-dark-mode {
+	position: absolute;
+	top: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	background: none;
+	border: none;
+	font-size: 24px;
+	cursor: pointer;
+	width: fit-content;
+	height: fit-content;
+	color: rgb(196, 182, 29);
+	text-align: center;
+	padding: 5px 15px;
+}
+
+body.dark-mode #toggle-dark-mode {
+	color: #e6dfdf;
 }

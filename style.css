@@ -1,0 +1,25 @@
+main {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+
+    div {
+        border: 1px solid gray;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 3px 3px black;
+
+
+        button {
+            background-color: red;
+            color: white;
+            padding: 7px;
+            border: 1px solid gray;
+            border-radius: 9px;
+            cursor: pointer;
+            width: 100%;
+            box-shadow: 3px 3px black;
+        }
+    }
+}
+

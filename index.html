@@ -34,5 +34,25 @@
 				</form>
 			</div>
 		</main>
+
+		<script>
+			// Unregister SW from the main domain.
+			window.onload = () => {
+				if ('serviceWorker' in navigator) {
+					navigator.serviceWorker
+						.getRegistrations()
+						.then(function (registrations) {
+							for (let registration of registrations) {
+								registration.unregister().then(function (boolean) {
+									console.log('Service worker unregistered:', boolean)
+								})
+							}
+						})
+						.catch(function (error) {
+							console.log('Error unregistering service workers:', error)
+						})
+				}
+			}
+		</script>
 	</body>
 </html>

@@ -8,6 +8,14 @@ main {
 	display: grid;
 	place-items: center;
 
+	button.other_voice {
+		background-color: teal;
+		color: white;
+		border: 1px solid teal;
+		margin: 0px 1px;
+		border-radius: 7px;
+	}
+
 	div.reject {
 		border: 1px solid gray;
 		padding: 10px;

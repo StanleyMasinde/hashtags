@@ -55,6 +55,8 @@
 					</div>
 				</form>
 			</div>
+			<!--Other hashtags can be added from the buttons below-->
+			<div id="otherVoices"></div>
 		</main>
 
 		<script>
@@ -62,6 +64,19 @@
 			window.onload = () => {
 				// Variables
 				const replyToLink = document.querySelector('input[name="in_reply_to"]')
+				const otherVoicesDiv = document.querySelector('#otherVoices')
+				const otherTags = [
+					'TotalShutdownKenya',
+					'FreeShad',
+					'FreeFranje',
+					'FreeHilla',
+					'FreeOguda',
+					'FreeOsama',
+					'FreeDrey',
+					'FreeTemper',
+					'FreeZadock',
+					'FreeNadia',
+				]
 				if ('serviceWorker' in navigator) {
 					navigator.serviceWorker
 						.getRegistrations()
@@ -90,6 +105,17 @@
 						}
 					})
 				}
+
+				// Render other tags buttons
+				otherTags.forEach((tag) => {
+					const button = document.createElement('button')
+					button.innerText = `Add #${tag}`
+					button.classList.add(['other_voice'])
+					button.addEventListener('click', (ev) => {
+						ev.preventDefault()
+					})
+					otherVoicesDiv.appendChild(button)
+				})
 			}
 		</script>
 	</body>

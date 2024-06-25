@@ -54,6 +54,25 @@
 						<button>Tweet #RejectFinanceBill2024</button>
 					</div>
 				</form>
+
+                <button id="hashtagButton">
+                    Just Copy Hashtags
+                </button>
+
+                <div id="hashtagContainer" style="display: none;">
+                    <label for="hashtagTextarea">
+                        Copy the hashtags below and paste them in your tweet
+                    </label>
+                    <textarea
+                            id="hashtagTextarea"
+                            rows="8"
+                    >#RejectFinanceBill2024 #OccupyParliament #TotalShutdownKenya #FreeShad #FreeFranje #FreeHilla #FreeOguda #FreeOsama #FreeDrey #FreeTemper #FreeZadock #FreeNadia
+			</textarea>
+                    <div style="display: flex">
+                        <button id="closeButton">Close</button>
+                        <button id="copyButton">Copy</button>
+                    </div>
+                </div>
 			</div>
 		</main>
 
@@ -90,6 +109,43 @@
 						}
 					})
 				}
+
+                // Copy to Clipboard functionality
+
+                // Get the elements
+                const hashtagButton = document.getElementById('hashtagButton');
+                const hashtagContainer = document.getElementById('hashtagContainer');
+                const closeButton = document.getElementById('closeButton');
+                const copyButton = document.getElementById('copyButton');
+                const hashtagTextarea = document.getElementById('hashtagTextarea');
+
+                // Add event listener to 'hashtagButton' button
+                hashtagButton.addEventListener('click', function () {
+                    hashtagButton.style.display = 'none';
+                    hashtagContainer.style.display = 'flex';
+                    hashtagContainer.style.flexDirection = 'column';
+                });
+
+                // Add event listener to 'Close' button
+                closeButton.addEventListener('click', function () {
+                    hashtagContainer.style.display = 'none';
+                    hashtagButton.style.display = 'block';
+                });
+
+                // Add event listener to 'Copy' button
+                copyButton.addEventListener('click', function () {
+                    navigator.clipboard.writeText(hashtagTextarea.value).then(function () {
+                        // Show notification
+                        alert('Hashtags copied to clipboard');
+
+                        // Close the textarea
+                        hashtagContainer.style.display = 'none';
+                        hashtagButton.style.display = 'block';
+                    })
+                        .catch(function (error) {
+                            console.error('Could not copy text: ', error);
+                        });
+                });
 			}
 		</script>
 	</body>

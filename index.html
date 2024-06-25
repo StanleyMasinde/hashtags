@@ -85,7 +85,10 @@
 						//
 						const link = event.target?.value
 						if (link) {
-							event.target.value = link.split('/').filter((v) => !isNaN(v))[1]
+							event.target.value = link
+								.split('?')[0]
+								.split('/')
+								.filter((v) => !isNaN(v))[1]
 						}
 					})
 				}

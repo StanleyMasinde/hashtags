@@ -46,3 +46,44 @@ main {
 		}
 	}
 }
+
+#hashtagButton {
+	background-color: #1A8CD8;
+	color: white;
+	padding: 7px;
+	border: 1px solid gray;
+	border-radius: 9px;
+	cursor: pointer;
+	width: 100%;
+	box-shadow: 3px 3px black;
+	margin-top: 30px;
+}
+
+#hashtagContainer {
+	display: none;
+	margin-top: 40px;
+}
+
+#hashtagTextarea {
+	border: 1px solid gray;
+	box-shadow: 3px 3px black;
+	border-radius: 5px;
+	margin: 10px 0;
+	padding: 10px;
+}
+
+#closeButton, #copyButton {
+	background-color: red;
+	color: white;
+	padding: 7px;
+	border: 1px solid gray;
+	border-radius: 9px;
+	cursor: pointer;
+	width: 100%;
+	box-shadow: 3px 3px black;
+	margin: 10px 5px 0;
+}
+
+#copyButton {
+	background-color: #1A8CD8;
+}

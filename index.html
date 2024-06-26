@@ -10,6 +10,8 @@
 </head>
 <body>
 <main>
+	<button id="toggle-dark-mode">&#9728;</button>
+
 	<div class="reject">
 		<h5>Click the button below to tweet #RejectFinanceBill2024</h5>
 
@@ -114,6 +116,28 @@
 </main>
 
 <script>
+	 const toggleDarkMode = () => {
+            document.body.classList.toggle('dark-mode');
+            const toggleButton = document.getElementById('toggle-dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                toggleButton.innerHTML = '&#9789;'; // Moon symbol
+            } else {
+                toggleButton.innerHTML = '&#9728;'; // Sun symbol
+            }
+        };
+
+        document.getElementById('toggle-dark-mode').addEventListener('click', toggleDarkMode);
+
+        // Detect user's preferred color scheme
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (prefersDarkScheme) {
+            document.body.classList.add('dark-mode');
+            document.getElementById('toggle-dark-mode').innerHTML = '&#9789;';
+        } else {
+            document.body.classList.remove('dark-mode');
+            document.getElementById('toggle-dark-mode').innerHTML = '&#9728;';
+        }
+
 	// Unregister SW from the main domain.
 	window.onload = () => {
 		// Variables
@@ -147,5 +171,4 @@
 		}
 	}
 </script>
-</body>
 </html>

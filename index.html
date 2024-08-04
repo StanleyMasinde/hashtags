@@ -21,14 +21,9 @@
 					<input
 						type="hidden"
 						name="hashtags"
-						value="RejectFinanceBill2024,OccupyParliament,TotalShutdownKenya,FreeShad,FreeFranje,FreeHilla,FreeOsama,FreeOguda,FreeDrey,FreeTemper"
+						value="RutoMustGo,OccupyStateHouse"
 					/>
-					<input
-						type="hidden"
-						name="related"
-						placeholder="Paste the link url here"
-						value="StanleyMasinde_"
-					/>
+					<input type="hidden" name="related" value="StanleyMasinde_" />
 
 					<div class="your-voice">
 						<label for="tweet">In reply to (Optional)</label>
@@ -52,6 +47,66 @@
 
 					<div>
 						<button>Tweet #RejectFinanceBill2024</button>
+					</div>
+				</form>
+
+				<h5>
+					Click the button below to tweet International media houses
+					#RejectFinanceBill2024
+				</h5>
+
+				<form
+					target="_blank"
+					action="https://twitter.com/intent/tweet"
+					method="get"
+				>
+					<input type="hidden" name="hashtags" value="RejectFinanceBill2024" />
+					<input
+						type="hidden"
+						name="related"
+						value="Europarl_EN,EU_Commission,UNHumanRights,_AfricanUnion,POTUS,GermanyDiplo,German_Gov,GOVUK,cabinetofficeuk,GovernmentRF,KremlinRussia_E,MFA_China,Chinamission2un,WhiteHouse,WSJ,CNN,BBCWorld,CGTNOfficial,Reuters,FoxNews,cnni,NBCNews,ChinaDaily,Telegraph,DailyMail,cnnbrk,RT_com,Newsweek,BBCAfrica,Independent,guardiannews,FRANCE24,CNBC,politico,SkyNewsBreak,FT,TheEconomist,_ReutersTopNews,washingtonpost,TIME,ABC,ndtv,AP,XHNews,HuffPost,guardian,BreakingNews,SkyNews,AJEnglish,nytimes,BBCBreaking"
+					/>
+					<input
+						type="hidden"
+						name="text"
+						value="@Europarl_EN @EU_Commission @UNHumanRights @_AfricanUnion @POTUS @GermanyDiplo @German_Gov @GOVUK @cabinetofficeuk @GovernmentRF @KremlinRussia_E @MFA_China @Chinamission2un @WhiteHouse @WSJ @CNN @BBCWorld @CGTNOfficial @Reuters @FoxNews @cnni @NBCNews @Telegraph @DailyMail @cnnbrk @RT_com @Newsweek @BBCAfrica @Independent @guardiannews @CNBC @politico @SkyNewsBreak @FT @TheEconomist @_ReutersTopNews @washingtonpost @TIME @ABC @AP @XHNews @HuffPost @guardian @BreakingNews @SkyNews @AJEnglish @nytimes @BBCBreaking
+"
+					/>
+
+					<div>
+						<button>
+							Tweet International Media Houses #RejectFinanceBill2024
+						</button>
+					</div>
+				</form>
+
+				<h5>
+					Click the button below to tweet International media houses for
+					non-Twitter premium users #RejectFinanceBill2024
+				</h5>
+
+				<form
+					target="_blank"
+					action="https://twitter.com/intent/tweet"
+					method="get"
+				>
+					<input type="hidden" name="hashtags" value="RejectFinanceBill2024" />
+					<input
+						type="hidden"
+						name="related"
+						value="guardian,BreakingNews,SkyNews,AJEnglish,cnnbrk,nytimes,BBCBreaking,BBCWorld"
+					/>
+					<input
+						type="hidden"
+						name="text"
+						value="@guardian @BreakingNews @SkyNews @AJEnglish @cnnbrk @nytimes @BBCBreaking @BBCWorld #RejectFinanceBill2024"
+					/>
+
+					<div>
+						<button>
+							Tweet International Media Houses (Non-Premium)
+							#RejectFinanceBill2024
+						</button>
 					</div>
 				</form>
 			</div>
@@ -80,7 +135,6 @@
 				// Listen for changes in the reply to field
 				if (replyToLink) {
 					replyToLink.addEventListener('change', (event) => {
-						//
 						const link = event.target?.value
 						if (link) {
 							event.target.value = link

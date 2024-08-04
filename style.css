@@ -16,96 +16,68 @@ main {
 	width: 100%;
 	padding: 20px;
 	box-sizing: border-box;
-}
 
-.reject {
-	background-color: #fff;
-	border: 3px solid #444444;
-	padding: 20px;
-	border-radius: 10px;
-	box-shadow: 4px 4px 2px 1px rgba(68, 68, 68, 1);
-	max-width: 400px;
-	text-align: center;
-}
+	div.reject {
+		background-color: #fff;
+		border: 3px solid #444444;
+		padding: 20px;
+		border-radius: 10px;
+		box-shadow: 4px 4px 2px 1px rgba(68, 68, 68, 1);
+		max-width: 800px;
+		text-align: center;
 
-.reject h1 {
-	font-size: 1.5rem;
-	margin-bottom: 20px;
-}
+		h5 {
+			text-align: left;
+			margin-bottom: 30px;
+		}
 
-.your-voice {
-	margin-bottom: 20px;
-}
+		div.your-voice {
+			margin-bottom: 20px;
 
-.your-voice label {
-	display: block;
-	margin-bottom: 5px;
-	font-weight: 400;
-    text-align: left;
-}
+			label {
+				display: block;
+				margin-bottom: 5px;
+				font-weight: 400;
+				text-align: left;
+			}
 
-.your-voice textarea, input {
-	width: 100%;
-	border: 1px solid #444444;
-	box-shadow: 4px 4px 2px 1px rgba(68, 68, 68, 1);
-	border-radius: 5px;
-	padding: 10px;
-	box-sizing: border-box;
-	font-family: inherit;
-	resize: vertical;
-}
+			textarea,
+			input {
+				width: 100%;
+				border: 1px solid #444444;
+				box-shadow: 4px 4px 2px 1px rgba(68, 68, 68, 1);
+				border-radius: 5px;
+				padding: 10px;
+				box-sizing: border-box;
+			}
 
-.your-voice textarea:focus,input:focus {
-	border-color: #444444;
-	outline:none;
-	border-width: 3px;
-}
+			textarea:focus,input:focus {
+				border-color: #444444;
+				outline:none;
+				border-width: 3px;
+			}
+		}
 
-button {
-	background-color: #d9534f;
-	color: white;
-	padding: 10px 15px;
-	border: none;
-	border-radius: 10px;
-	cursor: pointer;
-	font-size: 1rem;
-	box-shadow: 4px 4px 2px 1px rgba(68, 68, 68, 1);
-	transition: background-color 0.2s;
-	width: 100%;
-}
-
-button:hover {
-	background-color: #c9302c;
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-    .reject {
-        padding: 15px;
-        max-width: 90%;
-    }
-
-    .reject h1 {
-        font-size: 1.2rem;
-    }
-
-    button {
-        padding: 8px 12px;
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .reject {
-        padding: 10px;
-    }
-
-    .reject h1 {
-        font-size: 1rem;
-    }
-
-    button {
-        padding: 6px 10px;
-        font-size: 0.8rem;
-    }
+		form {
+			display: flex;
+			flex-direction: column;
+		}
+		
+		button {
+			background-color: #d9534f;
+			color: white;
+			padding: 10px 15px;
+			border: none;
+			border-radius: 10px;
+			cursor: pointer;
+			font-size: 1rem;
+			box-shadow: 4px 4px 2px 1px rgba(68, 68, 68, 1);
+			transition: background-color 0.2s;
+			width: 100%;
+		}
+		
+		button:hover {
+			background-color: #c9302c;
+		}	
+	}
 }

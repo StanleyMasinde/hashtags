@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>#RejectFinanceBill2024</title>
+  <title>Hashtags</title>
   <meta name="description" content="Reject finance Bill 2024 tweet helper" />
 
   <link rel="stylesheet" href="style.css" />
@@ -17,7 +17,7 @@
         <h2 id="mainTitle">Hashtag helper</h2>
         <p>To help bypass hashtag censorship, use this form to tweet.</p>
 
-        <form target="_blank" action="https://twitter.com/intent/tweet" method="get">
+        <form target="_blank" action="https://x.com/intent/tweet" method="get">
           <input id="mainTopicInput" type="hidden" name="hashtags" />
           <input type="hidden" name="related" value="StanleyMasinde_" />
 
@@ -79,7 +79,7 @@
         const currentTag = `Free${person}`
         newButton.innerText = `Tweet #${currentTag}`
         newButton.addEventListener('click', () => {
-          window.open(`https://twitter.com/intent/post?hashtags=${currentTag}`)
+          window.open(`https://x.com/intent/post?hashtags=${currentTag}`)
         })
         missinTab.appendChild(newButton)
       })

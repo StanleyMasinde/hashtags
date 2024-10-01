@@ -17,6 +17,10 @@ main {
 	padding: 20px;
 	box-sizing: border-box;
 
+  hr {
+    margin-top: 25px;
+  }
+
 	div.reject {
 		background-color: #fff;
 		border: 3px solid #444444;
@@ -26,7 +30,7 @@ main {
 		max-width: 800px;
 		text-align: center;
 
-		h5 {
+		h2 {
 			text-align: left;
 			margin-bottom: 30px;
 		}

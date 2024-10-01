@@ -1,150 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>#RejectFinanceBill2024</title>
-		<meta name="description" content="Reject finance Bill 2024 tweet helper" />
 
-		<link rel="stylesheet" href="style.css" />
-	</head>
-	<body>
-		<main>
-			<div class="reject">
-				<h5>Click the button below to tweet #RejectFinanceBill2024</h5>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>#RejectFinanceBill2024</title>
+  <meta name="description" content="Reject finance Bill 2024 tweet helper" />
 
-				<form
-					target="_blank"
-					action="https://twitter.com/intent/tweet"
-					method="get"
-				>
-					<input
-						type="hidden"
-						name="hashtags"
-						value="OccupyEverywhere,RejectSHIF,FreeMoraraKebaso"
-					/>
-					<input type="hidden" name="related" value="StanleyMasinde_" />
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-					<div class="your-voice">
-						<label for="tweet">In reply to (Optional)</label>
-						<input
-							type="text"
-							name="in_reply_to"
-							placeholder="Paste tweet link url here"
-						/>
-					</div>
+<body>
+  <main>
+    <div class="reject">
+      <div>
+        <h2 id="mainTitle">Hashtag helper</h2>
+        <p>To help bypass hashtag censorship, use this form to tweet.</p>
 
-					<div class="your-voice">
-						<label for="tweet">Type your tweet (Optional)</label>
-						<textarea
-							placeholder="Keep your head up"
-							autofocus
-							rows="5"
-							type="text"
-							name="text"
-						></textarea>
-					</div>
+        <form target="_blank" action="https://twitter.com/intent/tweet" method="get">
+          <input id="mainTopicInput" type="hidden" name="hashtags" />
+          <input type="hidden" name="related" value="StanleyMasinde_" />
 
-					<div>
-						<button>Tweet #RejectFinanceBill2024</button>
-					</div>
-				</form>
+          <div class="your-voice">
+            <label for="tweet">In reply to (Optional)</label>
+            <input type="text" name="in_reply_to" placeholder="Paste tweet link url here" />
+          </div>
 
-				<h5>
-					Click the button below to tweet International media houses
-					#RejectFinanceBill2024
-				</h5>
+          <div class="your-voice">
+            <label for="tweet">Type your tweet (Optional)</label>
+            <textarea placeholder="Keep your head up" autofocus rows="5" type="text" name="text"></textarea>
+          </div>
 
-				<form
-					target="_blank"
-					action="https://twitter.com/intent/tweet"
-					method="get"
-				>
-					<input type="hidden" name="hashtags" value="RejectFinanceBill2024" />
-					<input
-						type="hidden"
-						name="related"
-						value="Europarl_EN,EU_Commission,UNHumanRights,_AfricanUnion,POTUS,GermanyDiplo,German_Gov,GOVUK,cabinetofficeuk,GovernmentRF,KremlinRussia_E,MFA_China,Chinamission2un,WhiteHouse,WSJ,CNN,BBCWorld,CGTNOfficial,Reuters,FoxNews,cnni,NBCNews,ChinaDaily,Telegraph,DailyMail,cnnbrk,RT_com,Newsweek,BBCAfrica,Independent,guardiannews,FRANCE24,CNBC,politico,SkyNewsBreak,FT,TheEconomist,_ReutersTopNews,washingtonpost,TIME,ABC,ndtv,AP,XHNews,HuffPost,guardian,BreakingNews,SkyNews,AJEnglish,nytimes,BBCBreaking"
-					/>
-					<input
-						type="hidden"
-						name="text"
-						value="@Europarl_EN @EU_Commission @UNHumanRights @_AfricanUnion @POTUS @GermanyDiplo @German_Gov @GOVUK @cabinetofficeuk @GovernmentRF @KremlinRussia_E @MFA_China @Chinamission2un @WhiteHouse @WSJ @CNN @BBCWorld @CGTNOfficial @Reuters @FoxNews @cnni @NBCNews @Telegraph @DailyMail @cnnbrk @RT_com @Newsweek @BBCAfrica @Independent @guardiannews @CNBC @politico @SkyNewsBreak @FT @TheEconomist @_ReutersTopNews @washingtonpost @TIME @ABC @AP @XHNews @HuffPost @guardian @BreakingNews @SkyNews @AJEnglish @nytimes @BBCBreaking
-"
-					/>
+          <div>
+            <button id="mainTopicButton"></button>
+          </div>
+        </form>
+      </div>
 
-					<div>
-						<button>
-							Tweet International Media Houses #RejectFinanceBill2024
-						</button>
-					</div>
-				</form>
+      <hr>
 
-				<h5>
-					Click the button below to tweet International media houses for
-					non-Twitter premium users #RejectFinanceBill2024
-				</h5>
+      <!--Next tab-->
+      <div>
+        <h2>Missing/Arrested</h2>
+        <p>A list of missing people and those arrested</p>
 
-				<form
-					target="_blank"
-					action="https://twitter.com/intent/tweet"
-					method="get"
-				>
-					<input type="hidden" name="hashtags" value="RejectFinanceBill2024" />
-					<input
-						type="hidden"
-						name="related"
-						value="guardian,BreakingNews,SkyNews,AJEnglish,cnnbrk,nytimes,BBCBreaking,BBCWorld"
-					/>
-					<input
-						type="hidden"
-						name="text"
-						value="@guardian @BreakingNews @SkyNews @AJEnglish @cnnbrk @nytimes @BBCBreaking @BBCWorld #RejectFinanceBill2024"
-					/>
+        <div id="missingTab">
+          <!--The list will be rendered here-->
+        </div>
+      </div>
+    </div>
+  </main>
 
-					<div>
-						<button>
-							Tweet International Media Houses (Non-Premium)
-							#RejectFinanceBill2024
-						</button>
-					</div>
-				</form>
-			</div>
-		</main>
+  <script>
+    // Unregister SW from the main domain.
+    window.onload = async () => {
+      // Variables
+      const replyToLink = document.querySelector('input[name="in_reply_to"]')
+      const mainTopicButton = document.querySelector('#mainTopicButton')
+      const mainTopicInput = document.querySelector('#mainTopicInput')
+      const missinTab = document.querySelector('#missingTab')
 
-		<script>
-			// Unregister SW from the main domain.
-			window.onload = () => {
-				// Variables
-				const replyToLink = document.querySelector('input[name="in_reply_to"]')
-				if ('serviceWorker' in navigator) {
-					navigator.serviceWorker
-						.getRegistrations()
-						.then(function (registrations) {
-							for (let registration of registrations) {
-								registration.unregister().then(function (boolean) {
-									console.log('Service worker unregistered:', boolean)
-								})
-							}
-						})
-						.catch(function (error) {
-							console.log('Error unregistering service workers:', error)
-						})
-				}
+      // init the list formatter
+      const listFormatter = new Intl.ListFormat('en', {
+        style: 'long',
+        type: 'conjunction',
+      });
 
-				// Listen for changes in the reply to field
-				if (replyToLink) {
-					replyToLink.addEventListener('change', (event) => {
-						const link = event.target?.value
-						if (link) {
-							event.target.value = link
-								.split('?')[0]
-								.split('/')
-								.filter((v) => !isNaN(v))[1]
-						}
-					})
-				}
-			}
-		</script>
-	</body>
+      // Fetch the config
+      const response = await fetch('/config.json')
+      const {mainHashTag, missing} = await response.json()
+
+
+      // update the UI 
+      mainTopicButton.innerText = `Tweet ${listFormatter.format(mainHashTag.split(','))}`
+      mainTopicInput.value = mainHashTag
+      missing.forEach(person => {
+        const newButton = document.createElement('button') 
+        const currentTag = `Free${person}`
+        newButton.innerText = `Tweet #${currentTag}`
+        newButton.addEventListener('click', () => {
+          window.open(`https://twitter.com/intent/post?hashtags=${currentTag}`)
+        })
+        missinTab.appendChild(newButton)
+      })
+      
+
+
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+          .getRegistrations()
+          .then(function (registrations) {
+            for (let registration of registrations) {
+              registration.unregister().then(function (boolean) {
+                console.log('Service worker unregistered:', boolean)
+              })
+            }
+          })
+          .catch(function (error) {
+            console.log('Error unregistering service workers:', error)
+          })
+      }
+
+      // Listen for changes in the reply to field
+      if (replyToLink) {
+        replyToLink.addEventListener('change', (event) => {
+          const link = event.target?.value
+          if (link) {
+            event.target.value = link
+              .split('?')[0]
+              .split('/')
+              .filter((v) => !isNaN(v))[1]
+          }
+        })
+      }
+    }
+  </script>
+</body>
+
 </html>

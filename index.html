@@ -13,6 +13,16 @@
 <body>
   <main>
     <div class="reject">
+      <!--Tab switches-->
+      <div class="tab">
+        <div class="tab_item">
+          <h3>Main</h3>
+        </div>
+        <div class="tab_item">
+          <h3>Missing/Arrested</h3>
+        </div>
+      </div>
+      <!--First Tab-->
       <div>
         <h2 id="mainTitle">Hashtag helper</h2>
         <p>To help bypass hashtag censorship, use this form to tweet.</p>
@@ -75,7 +85,7 @@
       mainTopicButton.innerText = `Tweet ${listFormatter.format(mainHashTag.split(','))}`
       mainTopicInput.value = mainHashTag
       missing.forEach(person => {
-        const newButton = document.createElement('button') 
+        const newButton = document.createElement('button')
         const currentTag = `Free${person}`
         newButton.innerText = `Tweet #${currentTag}`
         newButton.addEventListener('click', () => {
@@ -83,7 +93,7 @@
         })
         missinTab.appendChild(newButton)
       })
-      
+
 
 
       if ('serviceWorker' in navigator) {

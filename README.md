@@ -6,7 +6,7 @@ Twitter is making it difficult to type **#RejectFinanceBill2024** by suggesting 
 You can **clone this project, customize it with your own hashtags, and host it yourself** to bypass censorship.  
 
 ## 🚀 Get Started  
-🔗 **Use the hosted version:** [about.stanleymasinde.com/hashtags](https://about.stanleymasinde.com/hashtags/)  
+🔗 **Use the hosted version:** [about.stanleymasinde.com/hashtags](https://oss.stanleymasinde.com/hashtags/)  
 
 🛠 **Self-Host Your Own:**  
 - Clone the repo  

@@ -1,0 +1,27 @@
+name: Mark stale issues and pull requests
+
+on:
+  schedule:
+  - cron: '0 0 * * *'
+
+jobs:
+  stale:
+
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+
+    steps:
+    - uses: actions/stale@v9
+      with:
+          days-before-stale: 30
+          days-before-close: 7
+          stale-issue-message: >
+            This issue has been automatically marked as stale due to inactivity.
+            It will be closed in 7 days unless updated.
+          close-issue-message: >
+            Closing this issue due to prolonged inactivity. Feel free to reopen.
+          stale-pr-message: 'This PR is stale. And will be closed in 7 days'
+          close-pr-message: 'Closing this due to inactivity.'
+          exempt-issue-labels: 'pinned,do-not-close'

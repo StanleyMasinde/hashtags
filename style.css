@@ -1,124 +1,150 @@
 /* Base Variables */
 :root {
-    --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    --bg-color: #f5f5f5;
-    --text-color: #333;
-    --primary-color: #d9534f;
-    --primary-hover: #c9302c;
-    --border-color: #444444;
-    --box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 12px;
+	--font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	--bg-color: #f5f5f5;
+	--text-color: #333;
+	--primary-color: #d9534f;
+	--primary-hover: #c9302c;
+	--border-color: #444444;
+	--box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 12px;
 }
 
 @media (prefers-color-scheme: dark) {
-    :root {
-        --bg-color: #121212;
-        --text-color: #e0e0e0;
-        --primary-color: #e74c3c;
-        --primary-hover: #c0392b;
-        --border-color: #666666;
-        --box-shadow: rgba(255, 255, 255, 0.1) 0px 4px 12px;
-    }
+	:root {
+		--bg-color: #121212;
+		--text-color: #f0f0f0;
+		--primary-color: #e74c3c;
+		--primary-hover: #c0392b;
+		--border-color: #666666;
+		--box-shadow: rgba(255, 255, 255, 0.05) 0px 4px 12px;
+	}
+
+	body {
+		background-color: var(--bg-color);
+		color: var(--text-color);
+	}
+
+	main .reject {
+		background-color: #1e1e1e;
+		border-color: var(--border-color);
+		color: var(--text-color);
+		box-shadow: var(--box-shadow);
+	}
 }
 
 /* Base Styles */
 body {
-    font-family: var(--font-family);
-    margin: 0;
-    padding: 0;
-    background-color: var(--bg-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    color: var(--text-color);
+	font-family: var(--font-family);
+	margin: 0;
+	padding: 0;
+	background-color: var(--bg-color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	color: var(--text-color);
 }
 
 /* Main Container */
 main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: 900px;
-    padding: 20px;
-    box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	max-width: 900px;
+	padding: 20px;
+	box-sizing: border-box;
 }
 
 main hr {
-    margin-top: 25px;
-    border: 0;
-    height: 1px;
-    background-color: var(--border-color);
-    width: 100%;
+	margin-top: 25px;
+	border: 0;
+	height: 1px;
+	background-color: var(--border-color);
+	width: 100%;
 }
 
 /* Reject Container */
 main .reject {
-    background-color: #ffffff;
-    border: 2px solid var(--border-color);
-    padding: 24px 28px;
-    border-radius: 12px;
-    box-shadow: var(--box-shadow);
-    max-width: 800px;
-    text-align: center;
+	background-color: #ffffff;
+	border: 2px solid var(--border-color);
+	padding: 24px 28px;
+	border-radius: 12px;
+	box-shadow: var(--box-shadow);
+	max-width: 800px;
+	text-align: center;
+	transition: background-color 0.3s, color 0.3s;
+}
+
+@media (prefers-color-scheme: dark) {
+	main .reject {
+		background-color: #1e1e1e;
+		color: var(--text-color);
+		border-color: var(--border-color);
+	}
 }
 
 main .reject h2 {
-    text-align: left;
-    margin-bottom: 24px;
-    font-size: 1.5rem;
+	text-align: left;
+	margin-bottom: 24px;
+	font-size: 1.5rem;
+	color: var(--text-color);
 }
 
 /* Form Styling */
 main .reject .your-voice {
-    margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 
 main .reject .your-voice label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-    text-align: left;
+	display: block;
+	margin-bottom: 8px;
+	font-weight: 500;
+	text-align: left;
+	color: var(--text-color);
 }
 
 main .reject .your-voice textarea,
 main .reject .your-voice input {
-    width: 100%;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 12px;
-    box-sizing: border-box;
-    transition: border-color 0.3s, box-shadow 0.3s;
+	width: 100%;
+	background-color: transparent;
+	color: var(--text-color);
+	border: 1px solid var(--border-color);
+	border-radius: 8px;
+	padding: 12px;
+	box-sizing: border-box;
+	transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 main .reject .your-voice textarea:focus,
 main .reject .your-voice input:focus {
-    border-color: var(--primary-color);
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(217, 83, 79, 0.2);
+	border-color: var(--primary-color);
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(217, 83, 79, 0.3);
 }
 
 /* Form Layout */
 main .reject form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
 }
 
 /* Button Styling */
 main .reject button {
-    background-color: var(--primary-color);
-    color: #ffffff;
-    padding: 12px 18px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s, transform 0.2s;
-    box-shadow: var(--box-shadow);
+	background-color: var(--primary-color);
+	color: #ffffff;
+	padding: 12px 18px;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 1rem;
+	transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 main .reject button:hover {
-    background-color: var(--primary-hover);
-    transform: translateY(-2px);
+	background-color: var(--primary-hover);
+	transform: translateY(-2px);
+	box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }

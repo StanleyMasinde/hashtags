@@ -2,119 +2,112 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hashtags</title>
-  <meta name="description" content="Reject finance Bill 2024 tweet helper" />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Hashtags</title>
+	<meta name="description" content="Reject finance Bill 2024 tweet helper" />
 
-  <link rel="stylesheet" href="style.css" />
+	<link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <main>
-    <div class="reject">
-      <div>
-        <h2 id="mainTitle">Hashtag helper</h2>
-        <p>To help bypass hashtag censorship, use this form to tweet.</p>
+	<main>
+		<section class="reject">
+			<h2 id="mainTitle">Hashtag Helper</h2>
+			<p>To help bypass hashtag censorship, use this form to tweet.</p>
 
-        <form target="_blank" action="https://x.com/intent/tweet" method="get">
-          <input id="mainTopicInput" type="hidden" name="hashtags" />
-          <input type="hidden" name="related" value="StanleyMasinde_" />
+			<form target="_blank" action="https://x.com/intent/tweet" method="get">
+				<input id="mainTopicInput" type="hidden" name="hashtags" />
+				<input type="hidden" name="related" value="StanleyMasinde_" />
 
-          <div class="your-voice">
-            <label for="tweet">In reply to (Optional)</label>
-            <input type="text" name="in_reply_to" placeholder="Paste tweet link url here" />
-          </div>
+				<div class="your-voice">
+					<label for="reply">In reply to (Optional)</label>
+					<input id="reply" type="text" name="in_reply_to" placeholder="Paste tweet link URL here" />
+				</div>
 
-          <div class="your-voice">
-            <label for="tweet">Type your tweet (Optional)</label>
-            <textarea placeholder="Keep your head up" autofocus rows="5" type="text" name="text"></textarea>
-          </div>
+				<div class="your-voice">
+					<label for="tweet">Type your tweet (Optional)</label>
+					<textarea id="tweet" placeholder="Keep your head up" rows="5" name="text"></textarea>
+				</div>
 
-          <div>
-            <button id="mainTopicButton"></button>
-          </div>
-        </form>
-      </div>
+				<button id="mainTopicButton"></button>
+			</form>
 
-      <hr>
+			<hr aria-hidden="true" />
 
-      <!--Next tab-->
-      <div>
-        <h2>Missing/Arrested</h2>
-        <p>A list of missing people and those arrested</p>
+			<section>
+				<h2>Missing/Arrested</h2>
+				<p>A list of missing people and those arrested</p>
 
-        <div id="missingTab">
-          <!--The list will be rendered here-->
-        </div>
-      </div>
-    </div>
-  </main>
+				<div id="missingTab"></div>
+			</section>
+		</section>
+	</main>
 
-  <script>
-    // Unregister SW from the main domain.
-    window.onload = async () => {
-      // Variables
-      const replyToLink = document.querySelector('input[name="in_reply_to"]')
-      const mainTopicButton = document.querySelector('#mainTopicButton')
-      const mainTopicInput = document.querySelector('#mainTopicInput')
-      const missinTab = document.querySelector('#missingTab')
+	<script>
+		// Unregister SW from the main domain.
+		window.onload = async () => {
+			// Variables
+			const replyToLink = document.querySelector('input[name="in_reply_to"]')
+			const mainTopicButton = document.querySelector('#mainTopicButton')
+			const mainTopicInput = document.querySelector('#mainTopicInput')
+			const missinTab = document.querySelector('#missingTab')
 
-      // init the list formatter
-      const listFormatter = new Intl.ListFormat('en', {
-        style: 'long',
-        type: 'conjunction',
-      });
+			// init the list formatter
+			const listFormatter = new Intl.ListFormat('en', {
+				style: 'long',
+				type: 'conjunction',
+			});
 
-      // Fetch the config
-      const response = await fetch('config.json')
-      const {mainHashTag, missing} = await response.json()
+			// Fetch the config
+			const response = await fetch('config.json')
+			const {mainHashTag, missing} = await response.json()
 
 
-      // update the UI 
-      mainTopicButton.innerText = `Tweet ${listFormatter.format(mainHashTag.split(','))}`
-      mainTopicInput.value = mainHashTag
-      missing.forEach(person => {
-        const newButton = document.createElement('button') 
-        const currentTag = `Free${person}`
-        newButton.innerText = `Tweet #${currentTag}`
-        newButton.addEventListener('click', () => {
-          window.open(`https://x.com/intent/post?hashtags=${currentTag}`)
-        })
-        missinTab.appendChild(newButton)
-      })
-      
+			// update the UI 
+			mainTopicButton.innerText = `Tweet ${listFormatter.format(mainHashTag.split(','))}`
+			mainTopicInput.value = mainHashTag
+			missing.forEach(person => {
+				const newButton = document.createElement('button')
+				const currentTag = `Free${person}`
+				newButton.innerText = `Tweet #${currentTag}`
+				newButton.addEventListener('click', () => {
+					window.open(`https://x.com/intent/post?hashtags=${currentTag}`)
+				})
+				missinTab.appendChild(newButton)
+			})
 
 
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker
-          .getRegistrations()
-          .then(function (registrations) {
-            for (let registration of registrations) {
-              registration.unregister().then(function (boolean) {
-                console.log('Service worker unregistered:', boolean)
-              })
-            }
-          })
-          .catch(function (error) {
-            console.log('Error unregistering service workers:', error)
-          })
-      }
 
-      // Listen for changes in the reply to field
-      if (replyToLink) {
-        replyToLink.addEventListener('change', (event) => {
-          const link = event.target?.value
-          if (link) {
-            event.target.value = link
-              .split('?')[0]
-              .split('/')
-              .filter((v) => !isNaN(v))[1]
-          }
-        })
-      }
-    }
-  </script>
+			if ('serviceWorker' in navigator) {
+				navigator.serviceWorker
+					.getRegistrations()
+					.then(function (registrations) {
+						for (let registration of registrations) {
+							registration.unregister().then(function (boolean) {
+								console.log('Service worker unregistered:', boolean)
+							})
+						}
+					})
+					.catch(function (error) {
+						console.log('Error unregistering service workers:', error)
+					})
+			}
+
+			// Listen for changes in the reply to field
+			if (replyToLink) {
+				replyToLink.addEventListener('change', (event) => {
+					const link = event.target?.value
+					if (link) {
+						event.target.value = link
+							.split('?')[0]
+							.split('/')
+							.filter((v) => !isNaN(v))[1]
+					}
+				})
+			}
+		}
+	</script>
 </body>
 
 </html>

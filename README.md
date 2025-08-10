@@ -30,10 +30,6 @@ You can **clone this project, customise it with your hashtags via `config.json`,
 * Quickly tweet about missing persons in case of abductions or disappearances.
 * Event promotions where consistent hashtags are needed.
 
-## Spread the Word
-
-If you find this project useful, consider sharing it with others. Every instance helps more people use the right hashtags for their purpose.
-
 ## License
 
 This project is open-source and licensed under the **MIT License**, allowing you to use, modify, and distribute it freely.

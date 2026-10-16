@@ -1,0 +1,33 @@
+# Plain static site template managed by Deployer. No install or build steps.
+name: Deployer
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: deployer-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - name: Prepare static site
+        env:
+          DEPLOYER_OUTPUT: "."
+          DEPLOYER_STAGING: ${{ runner.temp }}/deployer-site
+        run: |
+          test -f "$DEPLOYER_OUTPUT/index.html"
+          mkdir -p "$DEPLOYER_STAGING"
+          cp -R -- "$DEPLOYER_OUTPUT/." "$DEPLOYER_STAGING/"
+      - name: Upload static site
+        uses: actions/upload-artifact@v7
+        with:
+          name: deployer-app
+          path: ${{ runner.temp }}/deployer-site/
+          include-hidden-files: false
+          if-no-files-found: error
+          retention-days: 3
